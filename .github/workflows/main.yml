@@ -19,7 +19,7 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: 安装依赖包
+      - name: 安装依赖包 
         run: |
           pip install -r ./requirements.txt
 
