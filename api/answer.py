@@ -302,21 +302,16 @@ class TikuLike(Tiku):
             params = api_params_map.get(q_type, "")
             tans = res_json['data'].get(params, "")
             ans = ""
-            match q_type:
-                case 1:
-                    for i in tans:
-                        ans = ans + q_info['options'][option_map[i]] + '\n'
-                case 2:
-                    for i in tans:
-                        ans = ans + i + '\n'
-                case 3:
-                    ans = "正确" if tans == 1 else "错误"
-                case 0:
-                    ans = tans
-        else:
-            logger.error(f'{self.name}查询失败:\n{res.text}')
-            return None
-
+            if q_type == 1: 
+                for i in tans:
+                    ans = ans + q_info['options'][option_map[i]] + '\n'
+            elif q_type == 2:
+                 for i in tans:
+                     ans = ans + i + '\n'
+            elif q_type == 3:
+                ans = "正确" if tans == 1 else "错误"
+            elif q_type == 0:  
+                ans = tans
         ret += str(ans)
 
         self._times -= 1
