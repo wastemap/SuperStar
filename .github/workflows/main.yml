@@ -21,7 +21,7 @@ jobs:
  
       - name: 安装依赖包
         run: | # 安装依赖包
-          pip install -r ./requirements.txt 
+          pip install -r ./requirements.txt  
           
       
       - name: Run main.py
